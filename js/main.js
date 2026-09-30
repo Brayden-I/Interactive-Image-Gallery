@@ -38,6 +38,28 @@ function updateHeading() {
     }
 }
 
+function buildColorOptions() {
+    const select = document.getElementById("colorSelect");
+    const previous = select.value;
+    select.replaceChildren();
+    for (let i = 0; i < colors.length; i++) {
+        const option = document.createElement("option");
+        option.textContent = colors[i];
+        option.value = colors[i];
+        select.appendChild(option);
+    }
+    select.value = previous;
+    if (!previous) select.selectedIndex = -1;
+}
+
+function changeBackground() {
+    const selected = document.getElementById("colorSelect").value;
+    document.body.style.backgroundColor = selected;
+    console.log("Selected background color:", selected);
+}
+
+buildColorOptions();
+
 function changeImages() {
     setImages(replacementImages, replacementAlts);
     console.log("Images changed to:", replacementImages);
@@ -45,3 +67,4 @@ function changeImages() {
 
 document.getElementById("changeImgBtn").addEventListener("click", changeImages)
 document.getElementById("messageInput").addEventListener("blur", updateHeading);
+document.getElementById("colorSelect").addEventListener("change", changeBackground);
