@@ -19,3 +19,18 @@ const replacementAlts = [
     "Illustration of Uranus"
 ];
 const colors = ["lightblue", "lightgreen", "lavender", "peachpuff"];
+
+function setImages(paths, alts) {
+    for (let i = 0; i < paths.length; i++) {
+        const image = document.getElementById("img" + i);
+        image.src = paths[i];
+        image.alt = alts[i];
+    }
+}
+
+function changeImages() {
+    setImages(replacementImages, replacementAlts);
+    console.log("Images changed to:", replacementImages);
+}
+
+document.getElementById("changeImgBtn").addEventListener("click", changeImages)
