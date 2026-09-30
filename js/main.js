@@ -60,6 +60,16 @@ function changeBackground() {
 
 buildColorOptions();
 
+function addColor() {
+    const input = document.getElementById("colorInput");
+    const value = input.value.trim();
+    if (!value) return;
+    colors.push(value);
+    buildColorOptions();
+    input.value = "";
+    console.log("Updated colors array:", colors);
+}
+
 function changeImages() {
     setImages(replacementImages, replacementAlts);
     console.log("Images changed to:", replacementImages);
@@ -68,3 +78,4 @@ function changeImages() {
 document.getElementById("changeImgBtn").addEventListener("click", changeImages)
 document.getElementById("messageInput").addEventListener("blur", updateHeading);
 document.getElementById("colorSelect").addEventListener("change", changeBackground);
+document.getElementById("colorInput").addEventListener("blur", addColor);
