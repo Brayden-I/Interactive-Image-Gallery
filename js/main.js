@@ -28,6 +28,8 @@ function setImages(paths, alts) {
     }
 }
 
+setImages(initialImages, initialAlts);
+
 function updateHeading() {
     const value = document.getElementById("messageInput").value.trim();
     const title = document.getElementById("title");
