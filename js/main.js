@@ -28,9 +28,20 @@ function setImages(paths, alts) {
     }
 }
 
+function updateHeading() {
+    const value = document.getElementById("messageInput").value.trim();
+    const title = document.getElementById("title");
+    if (value) {
+        title.textContent = value;
+    } else {
+        title.textContent = "You didn’t enter anything!";
+    }
+}
+
 function changeImages() {
     setImages(replacementImages, replacementAlts);
     console.log("Images changed to:", replacementImages);
 }
 
 document.getElementById("changeImgBtn").addEventListener("click", changeImages)
+document.getElementById("messageInput").addEventListener("blur", updateHeading);
